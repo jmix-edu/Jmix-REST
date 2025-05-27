@@ -1,6 +1,7 @@
 package com.company.jmixpm.security;
 
 import com.company.jmixpm.entity.User;
+import io.jmix.rest.security.role.RestMinimalRole;
 import io.jmix.securitydata.user.AbstractDatabaseUserRepository;
 import org.springframework.context.annotation.Primary;
 import org.springframework.security.core.GrantedAuthority;
@@ -23,5 +24,14 @@ public class DatabaseUserRepository extends AbstractDatabaseUserRepository<User>
                 .addResourceRole(FullAccessRole.CODE)
                 .build();
         systemUser.setAuthorities(authorities);
+    }
+
+    @Override
+    protected void initAnonymousUser(final User anonymousUser) {
+        final Collection<GrantedAuthority> authorities = getGrantedAuthoritiesBuilder()
+                .addResourceRole(AnonymousUserReaderRole.CODE)
+                .addResourceRole(RestMinimalRole.CODE)
+                .build();
+        anonymousUser.setAuthorities(authorities);
     }
 }

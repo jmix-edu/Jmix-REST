@@ -43,6 +43,20 @@ public class Project {
     @OneToMany(mappedBy = "project")
     private List<Task> tasks;
 
+    @JoinTable(name = "PROJECT_USER_LINK",
+            joinColumns = @JoinColumn(name = "PROJECT_ID"),
+            inverseJoinColumns = @JoinColumn(name = "USER_ID"))
+    @ManyToMany
+    private List<User> participants;
+
+    public List<User> getParticipants() {
+        return participants;
+    }
+
+    public void setParticipants(List<User> participants) {
+        this.participants = participants;
+    }
+
     public ProjectStatus getStatus() {
         return status == null ? null : ProjectStatus.fromId(status);
     }

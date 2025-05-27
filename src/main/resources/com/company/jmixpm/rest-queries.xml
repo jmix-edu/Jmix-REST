@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<queries xmlns="http://jmix.io/schema/rest/queries">
+    <query name="tasksByStartDate" entity="Task_" fetchPlan="task-with-links-fetch-plan">
+        <jpql><![CDATA[select t from Task_ t where t.startDate = :startDate]]></jpql>
+        <params>
+            <param name="startDate" type="java.time.LocalDate"/>
+        </params>
+    </query>
+    <query name="tasksByAssignee" entity="Task_" fetchPlan="task-with-links-fetch-plan">
+        <jpql><![CDATA[select t from Task_ t where t.assignee.username in :assigneeNames]]></jpql>
+        <params>
+            <param name="assigneeNames" type="java.lang.String[]"/>
+        </params>
+    </query>
+</queries>

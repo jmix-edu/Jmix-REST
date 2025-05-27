@@ -4,17 +4,21 @@ import com.company.jmixpm.entity.User;
 import io.jmix.core.DataManager;
 import io.jmix.core.ValueLoadContext;
 import io.jmix.core.entity.KeyValueEntity;
+import io.jmix.rest.annotation.RestMethod;
+import io.jmix.rest.annotation.RestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@RestService("TaskService")
 @Service
 public class TaskService {
 
     @Autowired
     private DataManager dataManager;
 
+    @RestMethod
     public User findLeastBusyUser() {
         List<KeyValueEntity> keyValueEntities = dataManager.loadValues(new ValueLoadContext().setQuery(new ValueLoadContext.Query(
                 "select u, sum(t.estimatedEfforts) from User u " +

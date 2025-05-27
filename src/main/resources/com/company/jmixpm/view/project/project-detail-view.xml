@@ -10,9 +10,11 @@
                 <property name="tasks" fetchPlan="_base">
                     <property name="assignee" fetchPlan="_instance_name"/>
                 </property>
+                <property name="participants" fetchPlan="_base"/>
             </fetchPlan>
             <loader id="projectDl"/>
             <collection id="tasksDc" property="tasks"/>
+            <collection id="participantsDc" property="participants"/>
         </instance>
     </data>
     <facets>
@@ -64,6 +66,25 @@
                 <column property="startDate"/>
                 <column property="estimatedEfforts"/>
                 <column property="assignee"/>
+            </columns>
+        </dataGrid>
+        <hbox id="buttonsPanelSecond" classNames="buttons-panel">
+            <button action="participantsDataGrid.addAction"/>
+            <button action="participantsDataGrid.excludeAction"/>
+        </hbox>
+        <dataGrid id="participantsDataGrid" dataContainer="participantsDc"
+                  width="100%" minHeight="15em">
+            <actions>
+                <action id="addAction" type="list_add"/>
+                <action id="excludeAction" type="list_exclude"/>
+            </actions>
+            <columns>
+                <column property="username"/>
+                <column property="firstName"/>
+                <column property="lastName"/>
+                <column property="email"/>
+                <column property="active"/>
+                <column property="timeZoneId"/>
             </columns>
         </dataGrid>
         <hbox id="detailActions">
