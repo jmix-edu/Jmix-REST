@@ -1,0 +1,1450 @@
+{
+	"info": {
+		"_postman_id": "fbaf4e65-69ff-498f-a524-703aad5930de",
+		"name": "REST add-on",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18028019"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Get token",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "rest-caller",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "olWARaAmyf",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/oauth2/token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"oauth2",
+								"token"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Entities API",
+			"item": [
+				{
+					"name": "Loading",
+					"item": [
+						{
+							"name": "Sandbox",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "vlDW8xOoEch27GIJUho5uipnDzli_WfYNmLCjMmdVgmPgKBXcUc4CQDyl3uq9HZ4gR5zuU0l2z3IJC2XxWPv4jLUU_AylFbyIw9rSyxs2_cf9N3iTCyurbV927DdQVGW",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/rest/entities/Project?limit=10&sort=+name&sort=-startDate&fetchPlan=project-with-links-fetch-plan",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"rest",
+										"entities",
+										"Project"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "10"
+										},
+										{
+											"key": "sort",
+											"value": "+name"
+										},
+										{
+											"key": "sort",
+											"value": "-startDate"
+										},
+										{
+											"key": "offset",
+											"value": "10",
+											"disabled": true
+										},
+										{
+											"key": "fetchPlan",
+											"value": "project-with-links-fetch-plan"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET query",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "Vn6YuNqjilQtwf7rQvQG7h6768Q2m4uWc7QCB6EV-leF-_92-2N-9D9_KpwWONSfnj0yGne6Dg5Qm86Sh1NsBHyTjSNBsCuWXS69I3qhCYQxbS5EmCuRcuC_OqlI5wyp",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/rest/queries/Task_/tasksByStartDate?startDate=2025-01-09",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"rest",
+										"queries",
+										"Task_",
+										"tasksByStartDate"
+									],
+									"query": [
+										{
+											"key": "offset",
+											"value": "10",
+											"disabled": true
+										},
+										{
+											"key": "startDate",
+											"value": "2025-01-09"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Empty values",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "Vn6YuNqjilQtwf7rQvQG7h6768Q2m4uWc7QCB6EV-leF-_92-2N-9D9_KpwWONSfnj0yGne6Dg5Qm86Sh1NsBHyTjSNBsCuWXS69I3qhCYQxbS5EmCuRcuC_OqlI5wyp",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/rest/entities/User",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"rest",
+										"entities",
+										"User"
+									],
+									"query": [
+										{
+											"key": "offset",
+											"value": "10",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "POST query",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "Vn6YuNqjilQtwf7rQvQG7h6768Q2m4uWc7QCB6EV-leF-_92-2N-9D9_KpwWONSfnj0yGne6Dg5Qm86Sh1NsBHyTjSNBsCuWXS69I3qhCYQxbS5EmCuRcuC_OqlI5wyp",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"assigneeName\":\"dev1\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/rest/queries/Task_/tasksByAssignee",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"rest",
+										"queries",
+										"Task_",
+										"tasksByAssignee"
+									],
+									"query": [
+										{
+											"key": "offset",
+											"value": "10",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "POST filter",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "zG2TLO_SE9bMBJD24kIDtXamNYX9uBcZ8o7zwx-q20OcgZ__KrbExiE8I8iOnCP9gh2WpBx0eoljaHMzjPTPRwQbP-D7PyJ7DP7_kZnyXbTapQBbfwZj8VA1A5J3ZZzc",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"filter\" : {\n        \"conditions\" : [\n            {\n                \"group\" : \"AND\",\n                \"conditions\" : [\n                    {\n                        \"property\" : \"estimatedEfforts\",\n                        \"operator\" : \">\",\n                        \"value\" : 2\n                    },\n                    {              \n                        \"property\" : \"assignee.username\",\n                        \"operator\" : \"=\",\n                        \"value\" : \"dev1\"\n                    }\n                ]\n            }\n        ]\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/rest/entities/Task_/search",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"rest",
+										"entities",
+										"Task_",
+										"search"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET filter",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "zG2TLO_SE9bMBJD24kIDtXamNYX9uBcZ8o7zwx-q20OcgZ__KrbExiE8I8iOnCP9gh2WpBx0eoljaHMzjPTPRwQbP-D7PyJ7DP7_kZnyXbTapQBbfwZj8VA1A5J3ZZzc",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/rest/entities/Task_/search?filter={\"conditions\":[{\"property\":\"name\",\"operator\":\"contains\",\"value\":\"Prepare\"}]}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"rest",
+										"entities",
+										"Task_",
+										"search"
+									],
+									"query": [
+										{
+											"key": "filter",
+											"value": "{\"conditions\":[{\"property\":\"name\",\"operator\":\"contains\",\"value\":\"Prepare\"}]}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Creation",
+					"item": [
+						{
+							"name": "Create project with tasks",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "Vn6YuNqjilQtwf7rQvQG7h6768Q2m4uWc7QCB6EV-leF-_92-2N-9D9_KpwWONSfnj0yGne6Dg5Qm86Sh1NsBHyTjSNBsCuWXS69I3qhCYQxbS5EmCuRcuC_OqlI5wyp",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"Rest project with three tasks\",\n    \"manager\": {\n        \"id\":\"c0315747-094d-4e19-b445-383a051aad07\"},\n    \"tasks\": [\n        {\n            \"name\":\"Composite task one\",\n            \"assignee\":{\n                \"id\":\"60885987-1b61-4247-94c7-dff348347f93\"\n            },\n            \"startDate\":\"2024-11-06\"\n        },\n        {\n             \"name\":\"Composite task two\",\n            \"assignee\":{\n                \"id\":\"60885987-1b61-4247-94c7-dff348347f93\"\n            },\n            \"startDate\":\"2024-11-11\"\n        },\n         {\n            \"name\":\"Composite task three\",\n            \"assignee\":{\n                \"id\":\"60885987-1b61-4247-94c7-dff348347f93\"\n            },\n            \"startDate\":\"2024-11-06\"\n        }\n    ]    \n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/rest/entities/Project",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"rest",
+										"entities",
+										"Project"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create project",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "Vn6YuNqjilQtwf7rQvQG7h6768Q2m4uWc7QCB6EV-leF-_92-2N-9D9_KpwWONSfnj0yGne6Dg5Qm86Sh1NsBHyTjSNBsCuWXS69I3qhCYQxbS5EmCuRcuC_OqlI5wyp",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"Rest project new\",\n    \"manager\": {\n        \"id\":\"60885987-1b61-4247-94c7-dff348347f93\"}\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/rest/entities/Project",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"rest",
+										"entities",
+										"Project"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create two projects",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "Vn6YuNqjilQtwf7rQvQG7h6768Q2m4uWc7QCB6EV-leF-_92-2N-9D9_KpwWONSfnj0yGne6Dg5Qm86Sh1NsBHyTjSNBsCuWXS69I3qhCYQxbS5EmCuRcuC_OqlI5wyp",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n    {\n        \"name\":\"Batch created project first\",\n        \"manager\": {\n            \"id\":\"c0315747-094d-4e19-b445-383a051aad07\"}    \n    },\n    {\n        \"name\":\"Batch created project second\",\n        \"manager\": {\n            \"id\":\"c0315747-094d-4e19-b445-383a051aad07\"}    \n    }\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/rest/entities/Project",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"rest",
+										"entities",
+										"Project"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Update API",
+					"item": [
+						{
+							"name": "Rename project",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "Vn6YuNqjilQtwf7rQvQG7h6768Q2m4uWc7QCB6EV-leF-_92-2N-9D9_KpwWONSfnj0yGne6Dg5Qm86Sh1NsBHyTjSNBsCuWXS69I3qhCYQxbS5EmCuRcuC_OqlI5wyp",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"Rest project new renamed\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/rest/entities/Project/ca08dcea-da54-a22b-b7c2-75ab51cf6203",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"rest",
+										"entities",
+										"Project",
+										"ca08dcea-da54-a22b-b7c2-75ab51cf6203"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update association",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "SfjbNOVujLxUe8_SRVz7_Z7n2JogUEHtzSBqt1ooG_EdTl-C8RjcVyelxjVl4kYeZSx-lJsh5fSNyVNGfCjCp1JOoM2Tb5q6Epz2li5hJoZDj1rPGTzHix4dq0BHw5dB",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"participants\":[\n            {\n            \"id\":\"60885987-1b61-4247-94c7-dff348347f93\"\n            }\n        ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/rest/entities/Project/27d1b9fd-b821-451c-a707-d41018947e53",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"rest",
+										"entities",
+										"Project",
+										"27d1b9fd-b821-451c-a707-d41018947e53"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update composition 1",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "mAHj-H0V7x4gbm85-zngo8mFlXAtnGuKehvcmnj6SDJG2FBay_8voAOj5ANwW59rwzygWRXhYC5328U4EZks9UsSUUcCsSsRZu7v6pYXVkTNx0oOKcFGuV20owXAzcH_",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n   \"name\":\"Project with tasks simply renamed\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/rest/entities/Project/e53f9500-7ea6-402d-8b77-0059c7feb2a4",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"rest",
+										"entities",
+										"Project",
+										"e53f9500-7ea6-402d-8b77-0059c7feb2a4"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update composite Task",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "jXyc7QMWJU2bcX7plWbN01yhpJc3KZCOCvE4-jO3kuIF4-iUuLzLw-1VcAgaGFqfgsl3lLUu10F90N5xU6NFtw0yxU3DDpLGhXHUU-E9yadzwXXtdZiyRlQygLm-JGK0",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n   \"name\":\"Some task renamed\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/rest/entities/Task_/00886195-80af-f95c-6efe-1762ee467877",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"rest",
+										"entities",
+										"Task_",
+										"00886195-80af-f95c-6efe-1762ee467877"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update composition 2",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "OK2SGa0yVmKEg3ijwNRrqdw0JEQXQsjoUBynJgZJrRCKSVejxBSy6r0CXOvPIpIB-LeYQOMF0io_oC3g6GJOtJXrm9yWs7g49sWXwzYIH1rn7t8KFz2K7yeN4EImsFNt",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n   \"tasks\":[\n       {\"id\":\"9f609bde-08aa-0210-db51-e2393ebc5801\"},\n       {\"id\":\"7c6d013f-8a82-23fe-4643-07464a4a4b86\"},\n       {\n           \"id\":\"00886195-80af-f95c-6efe-1762ee467877\",\n           \"name\":\"Renamed composite task two\"\n       }\n   ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/rest/entities/Project/05680546-7e3e-9104-5e3b-9e4c4cecf5ba?responseFetchPlan=project-with-tasks-fetch-plan",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"rest",
+										"entities",
+										"Project",
+										"05680546-7e3e-9104-5e3b-9e4c4cecf5ba"
+									],
+									"query": [
+										{
+											"key": "responseFetchPlan",
+											"value": "project-with-tasks-fetch-plan"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Delete API",
+					"item": [
+						{
+							"name": "Delete project",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "xkZLr_Gz_n7axPR2FsUg3Z3OxPXrsC50YFEzbEgzTv29gF65DEs1S4erFHFtiCxoe3TX1Z51RwszoB5gBInYsjoSM-PdEb1t8nsH4NTiDfpzbO_qSkYTqqaLP31uveng",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/rest/entities/Project/ea260c98-2f65-30dd-57b3-ce8ce7356d1f",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"rest",
+										"entities",
+										"Project",
+										"ea260c98-2f65-30dd-57b3-ce8ce7356d1f"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete two projects",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "xkZLr_Gz_n7axPR2FsUg3Z3OxPXrsC50YFEzbEgzTv29gF65DEs1S4erFHFtiCxoe3TX1Z51RwszoB5gBInYsjoSM-PdEb1t8nsH4NTiDfpzbO_qSkYTqqaLP31uveng",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n   \"445a5ce2-6fb5-1807-c871-6a0847627916\",\n   \"8bd0f814-33bc-72bb-4358-d4f714c8c20d\"\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/rest/entities/Project",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"rest",
+										"entities",
+										"Project"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Delete API"
+				}
+			]
+		},
+		{
+			"name": "Files API",
+			"item": [
+				{
+					"name": "Upload file",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "SfjbNOVujLxUe8_SRVz7_Z7n2JogUEHtzSBqt1ooG_EdTl-C8RjcVyelxjVl4kYeZSx-lJsh5fSNyVNGfCjCp1JOoM2Tb5q6Epz2li5hJoZDj1rPGTzHix4dq0BHw5dB",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/home/vashenkoda/Загрузки/Ващенко Дмитрий.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/rest/files",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rest",
+								"files"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Download file",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "SfjbNOVujLxUe8_SRVz7_Z7n2JogUEHtzSBqt1ooG_EdTl-C8RjcVyelxjVl4kYeZSx-lJsh5fSNyVNGfCjCp1JOoM2Tb5q6Epz2li5hJoZDj1rPGTzHix4dq0BHw5dB",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/rest/files?fileRef=fs%3A%2F%2F2025%2F01%2F09%2F204decc0-9630-eef4-f127-1ac51df512dc.png%3Fname%3D%25D0%2592%25D0%25B0%25D1%2589%25D0%25B5%25D0%25BD%25D0%25BA%25D0%25BE%2B%25D0%2594%25D0%25BC%25D0%25B8%25D1%2582%25D1%2580%25D0%25B8%25D0%25B9.png",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rest",
+								"files"
+							],
+							"query": [
+								{
+									"key": "fileRef",
+									"value": "fs%3A%2F%2F2025%2F01%2F09%2F204decc0-9630-eef4-f127-1ac51df512dc.png%3Fname%3D%25D0%2592%25D0%25B0%25D1%2589%25D0%25B5%25D0%25BD%25D0%25BA%25D0%25BE%2B%25D0%2594%25D0%25BC%25D0%25B8%25D1%2582%25D1%2580%25D0%25B8%25D0%25B9.png"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add file to Task",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "ggA6nezVI8UUiI2fN4VHkMJlMydrOFSkt7oOlVCVEQbIMSYCXK2yjzIfdZiy0PHLCbgWw-j2iczYMQIua1gjzSKUmcsbxSDRECS0BUzUspA4JNC7TXTJw3AwvYM4ohvL",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"attachment\":\"fs://2025/01/09/204decc0-9630-eef4-f127-1ac51df512dc.png?name=%D0%92%D0%B0%D1%89%D0%B5%D0%BD%D0%BA%D0%BE+%D0%94%D0%BC%D0%B8%D1%82%D1%80%D0%B8%D0%B9.png\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/rest/entities/Task_/08c6b6fd-601a-4934-82d8-9960fa9008f8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rest",
+								"entities",
+								"Task_",
+								"08c6b6fd-601a-4934-82d8-9960fa9008f8"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Messages API",
+			"item": [
+				{
+					"name": "GET Entity translation",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "ggA6nezVI8UUiI2fN4VHkMJlMydrOFSkt7oOlVCVEQbIMSYCXK2yjzIfdZiy0PHLCbgWw-j2iczYMQIua1gjzSKUmcsbxSDRECS0BUzUspA4JNC7TXTJw3AwvYM4ohvL",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "ru",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/rest/messages/entities/Task_",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rest",
+								"messages",
+								"entities",
+								"Task_"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "10",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Enum translation",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "ggA6nezVI8UUiI2fN4VHkMJlMydrOFSkt7oOlVCVEQbIMSYCXK2yjzIfdZiy0PHLCbgWw-j2iczYMQIua1gjzSKUmcsbxSDRECS0BUzUspA4JNC7TXTJw3AwvYM4ohvL",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "ru-RU",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/rest/messages/enums/com.company.productmanagement2_4_0.entity.ProjectStatus",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rest",
+								"messages",
+								"enums",
+								"com.company.productmanagement2_4_0.entity.ProjectStatus"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "10",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Metadata API",
+			"item": [
+				{
+					"name": "GET Task metadata",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "ggA6nezVI8UUiI2fN4VHkMJlMydrOFSkt7oOlVCVEQbIMSYCXK2yjzIfdZiy0PHLCbgWw-j2iczYMQIua1gjzSKUmcsbxSDRECS0BUzUspA4JNC7TXTJw3AwvYM4ohvL",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/rest/metadata/entities/Task_",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rest",
+								"metadata",
+								"entities",
+								"Task_"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "10",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Fetch plan",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "ggA6nezVI8UUiI2fN4VHkMJlMydrOFSkt7oOlVCVEQbIMSYCXK2yjzIfdZiy0PHLCbgWw-j2iczYMQIua1gjzSKUmcsbxSDRECS0BUzUspA4JNC7TXTJw3AwvYM4ohvL",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/rest/metadata/entities/Task_/fetchPlans",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rest",
+								"metadata",
+								"entities",
+								"Task_",
+								"fetchPlans"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "10",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Enum metadata",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "ggA6nezVI8UUiI2fN4VHkMJlMydrOFSkt7oOlVCVEQbIMSYCXK2yjzIfdZiy0PHLCbgWw-j2iczYMQIua1gjzSKUmcsbxSDRECS0BUzUspA4JNC7TXTJw3AwvYM4ohvL",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/rest/metadata/enums/com.company.productmanagement2_4_0.entity.ProjectStatus",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rest",
+								"metadata",
+								"enums",
+								"com.company.productmanagement2_4_0.entity.ProjectStatus"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "10",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User info API",
+			"item": [
+				{
+					"name": "GET User info",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "ggA6nezVI8UUiI2fN4VHkMJlMydrOFSkt7oOlVCVEQbIMSYCXK2yjzIfdZiy0PHLCbgWw-j2iczYMQIua1gjzSKUmcsbxSDRECS0BUzUspA4JNC7TXTJw3AwvYM4ohvL",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/rest/userInfo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rest",
+								"userInfo"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "10",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Permissions",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "ggA6nezVI8UUiI2fN4VHkMJlMydrOFSkt7oOlVCVEQbIMSYCXK2yjzIfdZiy0PHLCbgWw-j2iczYMQIua1gjzSKUmcsbxSDRECS0BUzUspA4JNC7TXTJw3AwvYM4ohvL",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/rest/permissions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rest",
+								"permissions"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "10",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Business logic",
+			"item": [
+				{
+					"name": "Annotated service call",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "mpqF8cQH0PsGALRYzNbB2aU6b6nqxQ2JW6KYE3eD_cWjTqDDlEBYgrMW5aIvhaWERHiRdM7-60_WcSLCcVZ0O_QLuQowKtrhFjo1VNhlaunUK5FQtEzGOL3J4Sdt6CPv",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/rest/services/TaskService/findLeastBusyUser",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rest",
+								"services",
+								"TaskService",
+								"findLeastBusyUser"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "10",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Declared service call",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "CGq1pWcqtRN9_pbI0AT03HkG31QoojPNytwlqf4yU-homYhMBcC3h5iCZ3nlL3pUitFREogDMIAOZhntkCxIizNIP57CFSifW-lHyfMtfUDeoM3t9EyBbSsueiiV4O6R",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/rest/services/timeService/calculateSpentTimeInPeriod?periodStart=2025-01-01&periodEnd=2025-01-08",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rest",
+								"services",
+								"timeService",
+								"calculateSpentTimeInPeriod"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "10",
+									"disabled": true
+								},
+								{
+									"key": "periodStart",
+									"value": "2025-01-01"
+								},
+								{
+									"key": "periodEnd",
+									"value": "2025-01-08"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MVC call",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "vlDW8xOoEch27GIJUho5uipnDzli_WfYNmLCjMmdVgmPgKBXcUc4CQDyl3uq9HZ4gR5zuU0l2z3IJC2XxWPv4jLUU_AylFbyIw9rSyxs2_cf9N3iTCyurbV927DdQVGW",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/mvc/projects/newProjects",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"mvc",
+								"projects",
+								"newProjects"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "10",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Declared service call POST",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "CGq1pWcqtRN9_pbI0AT03HkG31QoojPNytwlqf4yU-homYhMBcC3h5iCZ3nlL3pUitFREogDMIAOZhntkCxIizNIP57CFSifW-lHyfMtfUDeoM3t9EyBbSsueiiV4O6R",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"periodStart\":\"2024-11-13\",\n    \"periodEnd\": \"2024-11-30\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/rest/services/timeService/calculateSpentTimeInPeriod",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rest",
+								"services",
+								"timeService",
+								"calculateSpentTimeInPeriod"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "10",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Documentation",
+			"item": [
+				{
+					"name": "JSON docs",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "vlDW8xOoEch27GIJUho5uipnDzli_WfYNmLCjMmdVgmPgKBXcUc4CQDyl3uq9HZ4gR5zuU0l2z3IJC2XxWPv4jLUU_AylFbyIw9rSyxs2_cf9N3iTCyurbV927DdQVGW",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/rest/docs/openapiDetailed.json",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rest",
+								"docs",
+								"openapiDetailed.json"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "YAML docs",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/yaml",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/rest/docs/openapi.yaml",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rest",
+								"docs",
+								"openapi.yaml"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "No auth",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/rest/entities/Task_",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rest",
+						"entities",
+						"Task_"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
